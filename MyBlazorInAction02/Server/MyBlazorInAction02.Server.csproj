@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.2.0-preview.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="6.0.0-rc.1.21452.15" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="6.0.0-rc.1.21452.15" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Client\MyBlazorInAction02.Client.csproj" />
+    <ProjectReference Include="..\Shared\MyBlazorInAction02.Shared.csproj" />
+  </ItemGroup>
+
+
+</Project>
