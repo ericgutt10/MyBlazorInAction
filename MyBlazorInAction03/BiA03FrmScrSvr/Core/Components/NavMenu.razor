@@ -1,0 +1,36 @@
+<div class="max-w-6xl px-4 mx-auto ">
+    <div class="flex justify-between">
+        <div class="flex space-x-7">
+            <!-- Logo -->
+            <!-- Primary Navbar items -->
+            <div class="items-center space-x-1 md:flex">
+                <NavLink class="transition duration-300 btn-blue" href="/">Home</NavLink>
+                <NavLink class="transition duration-300 btn-blue" href="/counter">Counter</NavLink>
+            </div>
+            <!-- Mobile menu button -->
+            <div class="@(toggleMobile ? "":"hidden") mobile-menu">
+                <button class="outline-none moble-menu-button" @onclick="OnBtnClick">
+                    <svg class="w-6 h-8 text-red-600" x-show="!showMenu" file="none" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                        <path d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+
+                <NavLink class="transition duration-300 btn-mobile" href="/">Home</NavLink>
+                <NavLink class="transition duration-300 btn-mobile" href="/counter">Counter</NavLink>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+
+    bool toggleMobile { get; set; } = true;
+
+    void OnBtnClick(MouseEventArgs e)
+    {
+        toggleMobile  =! toggleMobile;
+        Console.WriteLine($"Toggle: {toggleMobile}");
+    }
+}
