@@ -1,5 +1,45 @@
-﻿<h3>NavMenu</h3>
+﻿<nav class="bg-gray-300 shadow-lg">
+
+    <div class=" max-w-6xl mx-auto px-4">
+        <div class="flex justify-between">
+            <div class="flex space-x-1">
+                <!-- logo -->
+                <div>
+                    <div class="text-lg text-blue-500">Logo</div>
+                </div>
+                <!-- main nav -->
+                <div class="hidden sm:flex justify- space-x-1 px-24 ">
+                    <NavLink class="btn-blue">Home</NavLink>
+                    <NavLink class="btn-blue">Counter</NavLink>
+                </div>
+
+                <div class="hidden sm:flex justify-end space-x-3">
+                    <NavLink>Log in</NavLink>
+                    <NavLink>Sign Up</NavLink>
+                </div>
+            </div>
+        </div>
+
+        <div class="sm:hidden">
+            <button onclick="@OnMenuClick">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+
+            <div class="flex @(showMobileMenu ? "" : "hidden")">
+                <NavLink class="">Home</NavLink>
+                <NavLink class="">Counter</NavLink>
+            </div>
+        </div>
+    </div>
+</nav>
 
 @code {
-
+    bool showMobileMenu { get; set; } = false;
+    void OnMenuClick(MouseEventArgs e)
+    {
+        showMobileMenu = !showMobileMenu;
+    }
 }

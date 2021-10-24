@@ -8,9 +8,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blazor Host</title>
+    <link href="_content/Core/css/styles.css" rel="stylesheet" />
 </head>
-<body>
-    <app>
+<body class="bg-indigo-200">
+    <app >
         @(await Html.RenderComponentAsync<Core.AppRouter>(RenderMode.ServerPrerendered))
     </app>
     <script src="_framework/blazor.server.js"></script>
