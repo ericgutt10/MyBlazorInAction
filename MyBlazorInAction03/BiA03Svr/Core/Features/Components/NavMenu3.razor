@@ -1,0 +1,31 @@
+﻿@implements IDisposable
+
+<nav class="border-b-2" style="background: linear-gradient(to right, #e1ebf4, #345069);">
+    <NavLinkBase Name="Home" />
+    <NavLinkBase Name="Counter" />
+</nav>
+
+@code {
+
+    protected override void OnInitialized()
+    {
+    }
+
+    internal void HandleOnSelected(string navMenu)
+    {
+        Console.WriteLine($"{navMenu} - NavMenu on selected");
+    }
+
+    private bool collapseNavMenu = true;
+
+    private string NavMenuCssClass => collapseNavMenu ? "hidden" : "";
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+
+    public void Dispose()
+    {
+    }
+}

@@ -1,0 +1,71 @@
+﻿@inherits NavLink
+
+<NavLink CssString ="@BaseClassStr"
+         ActiveClass="@ActiveClassStr"
+         href="@RoutePath">@Name</NavLink>
+
+        @code{
+            [Parameter]
+            public bool Selected { get; set; }
+
+            [Parameter]
+            public string? Name { get; set; }
+
+            [Parameter]
+            public string? RoutePath { get; set; }
+
+            [Parameter]
+            public bool DefaultNavLink { get; set; } = false;
+
+            [Parameter]
+            public EventCallback<string> OnSelected { get; set; }
+            protected string ActiveClassStr => "activeBtn";
+
+            protected string BaseClassStr => "inactiveBtn";
+
+
+            //private void HandleOnSelected()
+            //{
+            //    Console.WriteLine($"{Name} Selected");
+
+            //    AppState.SetNavMenu(Name);
+            //}
+
+            protected override void OnInitialized()
+            {
+
+                //AppState.OnChange += HandleOnStateChange;
+
+                if (DefaultNavLink)
+                {
+                    ActiveClass = ActiveClassStr;
+                    // HandleOnSelected();
+
+
+                    StateHasChanged();
+                }
+            }
+
+            //private void HandleOnStateChange()
+            //{
+            //    Selected = AppState.SelectedNavLink == Name
+            //        ? true : false;
+            //}
+
+
+
+
+
+            //protected override Task OnParametersSetAsync()
+            //{
+            //    Console.WriteLine("OnParametersSetAsync");
+            //    HandleOnStateChange();
+            //    return base.OnParametersSetAsync();
+            //}
+
+            //public override Task SetParametersAsync(ParameterView parameters)
+            //{
+            //    Console.WriteLine(parameters.ToString());
+            //    return base.SetParametersAsync(parameters);
+            //}
+        }

@@ -1,24 +1,15 @@
-﻿<nav class="bg-gray-300 shadow-lg">
+﻿<!-- This example requires Tailwind CSS v2.0+ -->
+<nav class="container bg-gray-500">
 
-    <div class="max-w-6xl px-4 mx-auto ">
-        <div class="flex justify-between">
-            <div class="flex space-x-1">
                 <!-- logo -->
                 <div>
-                    <div class="text-lg text-blue-500">Logo</div>
+                    <h3 class=" text-gray-50">Blazing Trails</h3>
                 </div>
                 <!-- main nav -->
-                <div class="hidden px-24 space-x-1 sm:flex ">
-                    <NavLink class="btn-blue">Home</NavLink>
-                    <NavLink class="btn-blue">Counter</NavLink>
+                <div class="flex justify-around">
+                    <NavLink ActiveClass="activeBtn" InactiveClass="inactiveBtn" class="inactiveBtn" href="" >Home</NavLink>
+                    <NavLink ActiveClass="activeBtn" class="inactiveBtn" href="counter" >Counter</NavLink>
                 </div>
-
-                <div class="justify-end hidden space-x-3 sm:flex">
-                    <NavLink>Log in</NavLink>
-                    <NavLink>Sign Up</NavLink>
-                </div>
-            </div>
-        </div>
 
         <div class="sm:hidden">
             <HambergerButton CollapseNaveMenu="@collapseNavMenu" ToggleNavMenu="@ToggleNavMenu" />
@@ -28,8 +19,9 @@
                 <NavLink class="">Counter</NavLink>
             </div>
         </div>
-    </div>
+
 </nav>
+
 
 @code {
     bool collapseNavMenu { get; set; } = true;
@@ -39,5 +31,4 @@
     {
         collapseNavMenu =! collapseNavMenu;
     }
-
 }
