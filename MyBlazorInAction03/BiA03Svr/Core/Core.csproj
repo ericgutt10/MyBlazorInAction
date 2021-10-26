@@ -5,6 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <NpmLastInstall>node_modules/.last-install</NpmLastInstall>
+    <DefaultItemExcludes>node_modules/**</DefaultItemExcludes>
   </PropertyGroup>
 
 

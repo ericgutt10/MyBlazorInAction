@@ -1,71 +1,81 @@
-﻿@inherits NavLink
+﻿@using System.Diagnostics
+@using System.Linq
+@inherits NavLink
 
-<NavLink CssString ="@BaseClassStr"
+<NavLink class="@BaseClassStr"
          ActiveClass="@ActiveClassStr"
          href="@RoutePath">@Name</NavLink>
 
-        @code{
-            [Parameter]
-            public bool Selected { get; set; }
+@code {
 
-            [Parameter]
-            public string? Name { get; set; }
+    public bool Selected =>
+                base.CssClass is null ? false :
+                    base.CssClass.Contains("active") ? true : false;
 
-            [Parameter]
-            public string? RoutePath { get; set; }
+    [Parameter]
+    public string? Name { get; set; }
 
-            [Parameter]
-            public bool DefaultNavLink { get; set; } = false;
+    [Parameter]
+    public string? RoutePath { get; set; }
 
-            [Parameter]
-            public EventCallback<string> OnSelected { get; set; }
-            protected string ActiveClassStr => "activeBtn";
+    [Parameter]
+    public bool DefaultNavLink { get; set; } = false;
 
-            protected string BaseClassStr => "inactiveBtn";
+    [Parameter]
+    public EventCallback<string> OnSelected { get; set; }
 
+    [Parameter]
+    public string? ActiveClassStr { get; set; }
 
-            //private void HandleOnSelected()
-            //{
-            //    Console.WriteLine($"{Name} Selected");
-
-            //    AppState.SetNavMenu(Name);
-            //}
-
-            protected override void OnInitialized()
-            {
-
-                //AppState.OnChange += HandleOnStateChange;
-
-                if (DefaultNavLink)
-                {
-                    ActiveClass = ActiveClassStr;
-                    // HandleOnSelected();
-
-
-                    StateHasChanged();
-                }
-            }
-
-            //private void HandleOnStateChange()
-            //{
-            //    Selected = AppState.SelectedNavLink == Name
-            //        ? true : false;
-            //}
+    [Parameter]
+    public string? BaseClassStr { get; set; }
 
 
 
+    protected override void OnInitialized()
+    {
+    }
 
-
-            //protected override Task OnParametersSetAsync()
-            //{
-            //    Console.WriteLine("OnParametersSetAsync");
-            //    HandleOnStateChange();
-            //    return base.OnParametersSetAsync();
-            //}
-
-            //public override Task SetParametersAsync(ParameterView parameters)
-            //{
-            //    Console.WriteLine(parameters.ToString());
-            //    return base.SetParametersAsync(parameters);
-            //}
+    private void HandleOnStateChange()
+    {
+        if (Selected)
+        {
+            ActiveClass = ActiveClassStr;
         }
+        else
+        {
+            ActiveClass = string.Empty;
+        }
+        HandleOnSelected();
+
+
+        StateHasChanged();
+    }
+
+
+    private void HandleOnSelected()
+    {
+        Debug.WriteLine($"{Name} Selected");
+    }
+
+
+
+    protected override Task OnParametersSetAsync()
+    {
+        Debug.WriteLine("OnParametersSetAsync");
+        //HandleOnStateChange();
+        return base.OnParametersSetAsync();
+    }
+
+    public override Task SetParametersAsync(ParameterView parameters)
+    {
+        parameters.ToDictionary()
+            .ToList()
+            .ForEach((kv) =>
+            {
+                Debug.WriteLine($"{kv.Key}: {kv.Value}");
+            });
+
+        return base.SetParametersAsync(parameters);
+    }
+}
