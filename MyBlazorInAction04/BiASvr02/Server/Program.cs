@@ -7,7 +7,11 @@ var app = builder.Build();
 app.UseStaticFiles();
 app.UseRouting();
 
-app.MapBlazorHub();
-app.MapFallbackToPage("/Host");
+app.UseEndpoints(config =>
+{
+    config.MapBlazorHub();
+    config.MapFallbackToPage($"/{nameof(Host)}");
+});
+
 
 app.Run();
