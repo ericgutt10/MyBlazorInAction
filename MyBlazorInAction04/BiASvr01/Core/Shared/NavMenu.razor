@@ -1,0 +1,28 @@
+﻿<nav class="flex flex-wrap items-center justify-between w-full py-2 text-lg text-gray-700 bg-white witems-center sm:py-3">
+    <NavLink href="">Blazing Trails</NavLink>
+    <HambergerButton CollapseNaveMenu="@collapseNavMenu" ToggleNavMenu="@ToggleNavMenu" />
+    <div class="@NavMenuCssClass w-full  sm:flex sm:items-center sm:w-auto">
+        <ul class="justify-end pt-3 text-base text-gray-700 xs:flex-col xs:items-end sm:flex sm:flex-row sm:justify-between sm:pt-0">
+            <li>
+                <NavLink ActiveClass="activeBtn" class="inactiveBtn" href="/" Match=NavLinkMatch.All>Home</NavLink>
+            </li>
+            <li>
+                <NavLink ActiveClass="activeBtn" class="inactiveBtn" href="/counter">Counter</NavLink>
+            </li>
+            <li>
+                <NavLink ActiveClass="activeBtn" class="inactiveBtn" href="/junk">Junk</NavLink>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private string? NavMenuCssClass => collapseNavMenu ? "hidden" : "";
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+}
