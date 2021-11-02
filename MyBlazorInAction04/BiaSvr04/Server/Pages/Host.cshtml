@@ -13,10 +13,7 @@
 
 <body>
     <app>
-        Host
-        @*
-            @(await Html.RenderComponentAsync<Core.AppRouter>(RenderMode.ServerPrerendered))
-        *@
+        @(await Html.RenderComponentAsync<Core.CoreApp>(RenderMode.ServerPrerendered))
     </app>
     <script src="_framework/blazor.server.js"></script>
 </body>
