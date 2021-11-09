@@ -1,22 +1,52 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
 
 
-  <ItemGroup>
-    <SupportedPlatform Include="browser" />
-  </ItemGroup>
+    <ItemGroup>
+        <SupportedPlatform Include="browser" />
+    </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.0-rc.2.21480.10" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.ClientAssets" Version="0.1.0-alpha.21528.2" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.0-rc.2.21480.10" />
+        <PackageReference Include="Microsoft.AspNetCore.ClientAssets" Version="0.1.0-alpha.21528.2" />
+    </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="wwwroot\" />
-  </ItemGroup>
+    <PropertyGroup>
+        <ClientAssetsDirectory Condition="'$(ClientAssetsDirectory)' == ''">Assets\</ClientAssetsDirectory>
+        <ClientAssetsRestoreInputs Condition="'$(ClientAssetsRestoreInputs)' == ''">$(ClientAssetsDirectory)package-lock.json;$(ClientAssetsDirectory)package.json</ClientAssetsRestoreInputs>
+        <ClientAssetsRestoreOutputs Condition="'$(ClientAssetsRestoreOutputs)' == ''">$(ClientAssetsDirectory)node_modules.package-lock.json</ClientAssetsRestoreOutputs>
+        <ClientAssetsRestoreCommand Condition="'$(ClientAssetsRestoreCommand)' == ''">npm install</ClientAssetsRestoreCommand>
+        <ClientAssetsBuildCommand Condition="'$(ClientAssetsBuildCommand)' == ''">npm run build:$(Configuration)</ClientAssetsBuildCommand>
+        <ClientAssetsBuildOutputParameter Condition="'$(ClientAssetsBuildOutputParameter)' == ''">-o</ClientAssetsBuildOutputParameter>
+        <ClientAssetsRestoreInputs>$(MSBuildProjectFile);$(ClientAssetsRestoreInputs)</ClientAssetsRestoreInputs>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ClientAssetsInputs Include="$(ClientAssetsDirectory)**" Exclude="$(DefaultItemExcludes)" />
+    </ItemGroup>
+
+    <Target Name="NpmInstall" Inputs="$(ClientAssetsRestoreInputs)" Outputs="$(ClientAssetsRestoreOutputs)">
+        <Message Importance="high" Text="Running $(ClientAssetsRestoreCommand)..." />
+        <Exec Command="$(ClientAssetsRestoreCommand)" WorkingDirectory="$(ClientAssetsDirectory)" />
+    </Target>
+
+    <Target Name="NpmRunBuild" DependsOnTargets="NpmInstall" BeforeTargets="AssignTargetPaths" Inputs="@(ClientAssetsInputs)" Outputs="$(IntermediateOutputPath)clientassetsbuild.complete.txt">
+        <Exec Command="$(ClientAssetsBuildCommand) -- $(ClientAssetsBuildOutputParameter) $(IntermediateOutputPath)clientassets" WorkingDirectory="$(ClientAssetsDirectory)" />
+
+        <ItemGroup>
+            <_ClientAssetsBuildOutput Include="$(IntermediateOutputPath)clientassets**"></_ClientAssetsBuildOutput>
+            <Content Include="@(_ClientAssetsBuildOutput)" Link="wwwroot%(_ClientAssetsBuildOutput.RecursiveDir)%(_ClientAssetsBuildOutput.FileName)%(_ClientAssetsBuildOutput.Extension)" />
+            <FileWrites Include="@(_ClientAssetsBuildOutput)" />
+            <FileWrites Include="$(IntermediateOutputPath)clientassetsbuild.complete.txt" />
+        </ItemGroup>
+
+        <WriteLinesToFile File="$(IntermediateOutputPath)clientassetsbuild.complete.txt" Lines="@(_ClientAssetsBuildOutput)" />
+    </Target>
 
 </Project>
