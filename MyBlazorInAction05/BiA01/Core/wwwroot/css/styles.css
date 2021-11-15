@@ -772,8 +772,8 @@ h6 {
 .nav-btn {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
   font-size: 0.875rem;
   line-height: 1.25rem;
   font-weight: 500;
@@ -804,8 +804,8 @@ h6 {
 .hover\:nav-btn:hover {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
   font-size: 0.875rem;
   line-height: 1.25rem;
   font-weight: 500;
@@ -32489,8 +32489,8 @@ h6 {
   .sm\:nav-btn {
     padding-left: 0.75rem;
     padding-right: 0.75rem;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
     font-size: 0.875rem;
     line-height: 1.25rem;
     font-weight: 500;
@@ -32521,8 +32521,8 @@ h6 {
   .sm\:hover\:nav-btn:hover {
     padding-left: 0.75rem;
     padding-right: 0.75rem;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
     font-size: 0.875rem;
     line-height: 1.25rem;
     font-weight: 500;
@@ -63781,8 +63781,8 @@ h6 {
   .md\:nav-btn {
     padding-left: 0.75rem;
     padding-right: 0.75rem;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
     font-size: 0.875rem;
     line-height: 1.25rem;
     font-weight: 500;
@@ -63813,8 +63813,8 @@ h6 {
   .md\:hover\:nav-btn:hover {
     padding-left: 0.75rem;
     padding-right: 0.75rem;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
     font-size: 0.875rem;
     line-height: 1.25rem;
     font-weight: 500;
@@ -95073,8 +95073,8 @@ h6 {
   .lg\:nav-btn {
     padding-left: 0.75rem;
     padding-right: 0.75rem;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
     font-size: 0.875rem;
     line-height: 1.25rem;
     font-weight: 500;
@@ -95105,8 +95105,8 @@ h6 {
   .lg\:hover\:nav-btn:hover {
     padding-left: 0.75rem;
     padding-right: 0.75rem;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
     font-size: 0.875rem;
     line-height: 1.25rem;
     font-weight: 500;
@@ -126365,8 +126365,8 @@ h6 {
   .xl\:nav-btn {
     padding-left: 0.75rem;
     padding-right: 0.75rem;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
     font-size: 0.875rem;
     line-height: 1.25rem;
     font-weight: 500;
@@ -126397,8 +126397,8 @@ h6 {
   .xl\:hover\:nav-btn:hover {
     padding-left: 0.75rem;
     padding-right: 0.75rem;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
     font-size: 0.875rem;
     line-height: 1.25rem;
     font-weight: 500;
@@ -157657,8 +157657,8 @@ h6 {
   .\32xl\:nav-btn {
     padding-left: 0.75rem;
     padding-right: 0.75rem;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
     font-size: 0.875rem;
     line-height: 1.25rem;
     font-weight: 500;
@@ -157689,8 +157689,8 @@ h6 {
   .\32xl\:hover\:nav-btn:hover {
     padding-left: 0.75rem;
     padding-right: 0.75rem;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
     font-size: 0.875rem;
     line-height: 1.25rem;
     font-weight: 500;
