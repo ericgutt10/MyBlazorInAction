@@ -1,0 +1,33 @@
+<nav class="px-8 py-4">
+    <div class="flex items-center justify-between ">
+        <!-- logo -->
+        <div>
+            <h3>
+                <NavLink class="text-blue-500" href="">My Logo</NavLink>
+            </h3>
+        </div>
+        <!-- mobile -->
+        <div class="flex lg:hidden">
+            <HambergerButton IsNavMenuOpen="@isNavMenuOpen" ToggleNavMenu="@ToggleNavMenu" />
+        </div>
+        <!-- main nav -->
+        <div>
+            <div
+                class="@navMenuClass flex-col mt-2 space-y-4 md:flex md:space-y-0 md:flex-row md:items-center md:space-x-10 md:mt-0 ">
+                <NavLink href="">Home</NavLink>
+                <NavLink href="counter">Counter</NavLink>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+@code {
+    bool isNavMenuOpen { get; set; } = false;
+    string navMenuClass => isNavMenuOpen ? "flex" : "hidden";
+
+    void ToggleNavMenu()
+    {
+        isNavMenuOpen = !isNavMenuOpen;
+    }
+}

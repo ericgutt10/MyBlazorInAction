@@ -1,3 +1,50 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    h1 {
+        @apply text-3xl text-gray-800 md:text-4xl lg:text-5xl;
+    }
+
+    h2 {
+        @apply text-2xl text-gray-800 md:text-4xl lg:text-3xl;
+    }
+
+    h3 {
+        @apply text-xl text-gray-800 md:text-2xl lg:text-3xl;
+    }
+
+    h4 {
+        @apply text-lg text-gray-800 md:text-xl lg:text-2xl;
+    }
+
+    h5 {
+        @apply text-base text-gray-800 md:text-lg lg:text-lg;
+    }
+
+    h6 {
+        @apply text-sm text-gray-800 md:text-base lg:text-lg;
+    }
+}
+
+@layer components {
+
+    @variants responsive,
+    hover {
+        .nav-btn {
+            @apply px-3 py-2 text-sm font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white;
+        }
+
+        .mobile-btn {
+            @apply block text-base;
+        }
+    }
+
+    .active-btn {
+        @apply text-white bg-gray-900;
+    }
+
+
+
+}
