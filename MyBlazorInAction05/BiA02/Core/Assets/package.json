@@ -1,0 +1,16 @@
+{
+  "name": "assets",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:Debug": "npx tailwindcss -i .\\Styles\\Styles.css -o ..\\wwwroot\\css\\styles.css",
+    "build:Release": "npx tailwindcss -m -i .\\Styles\\Styles.css -o ..\\wwwroot\\css\\styles.css",
+    "watch": "npx tailwindcss -i .\\Styles\\Styles.css -o ..\\wwwroot\\css\\styles.css -w"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "tailwindcss": "^2.2.19"
+  }
+}

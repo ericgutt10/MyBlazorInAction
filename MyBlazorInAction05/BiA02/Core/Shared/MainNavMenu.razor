@@ -1,4 +1,61 @@
-<nav>
-    <NavLink href="/" Match=NavLinkMatch.All>Home</NavLink>
-    <NavLink href="/counter">Counter</NavLink>
+<nav class=" bg-gray-300">
+    <div class="max-w-full px-2 mx-auto sm:px-4 lg:px-6">
+        <div class="relative flex items-center justify-between h-10">
+            <!-- hamberger icon -->
+            <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+                Hamberger
+            </div>
+            <!-- Main -->
+            <div class="flex items-center justify-center flex-1 sm:items-stretch sm:justify-start">
+                <!-- Logo -->
+                <div class="flex items-center flex-shrink-0">
+                    <h3>Logo</h3>
+                </div>
+
+                <!-- Menu Right -->
+                <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:ml-6 sm:pr-6">
+                    <div class="hidden sm:block sm:ml-6">
+                        <div class="flex space-x-4">
+                            <NavLink ActiveClass="active-btn" class="nav-btn" href="/" Match=NavLinkMatch.All>Home
+                            </NavLink>
+                            <NavLink ActiveClass="active-btn" class="nav-btn" href="/counter">Counter</NavLink>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <!-- Mobile menu, show/hide based on menu state. -->
+
+    <div class="@showMobileMenu sm:hidden">
+        <div class="px-1 pt-1 pb-1 space-y-1">
+            <NavLink ActiveClass="active-btn" class="nav-btn mobile-btn" href="/" Match=NavLinkMatch.All>Home</NavLink>
+            <NavLink ActiveClass="active-btn" class="nav-btn mobile-btn" href="/counter">Counter</NavLink>
+        </div>
+    </div>
+
+
 </nav>
+
+@code {
+    bool isNavMenuOpen { get; set; } = true;
+    string navMenuClass => isNavMenuOpen ? "" : "hidden";
+    string showMobileMenu => !isNavMenuOpen ? "" : "hidden";
+    void ToggleNavMenu()
+    {
+        isNavMenuOpen = !isNavMenuOpen;
+    }
+
+    string hidePprofileMenu => isProfileMenuOpen ? "" : "hidden";
+    bool isProfileMenuOpen { get; set; } = false;
+    void OnProfileBtnClick()
+    {
+        isProfileMenuOpen = !isProfileMenuOpen;
+    }
+    void OnProfileBtnBlur()
+    {
+        //isProfileMenuOpen = false;
+    }
+}
