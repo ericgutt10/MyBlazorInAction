@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Razor">
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -13,7 +13,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.ClientAssets" Version="0.1.0-alpha.21528.2" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.9" />
   </ItemGroup>
 
 </Project>
