@@ -31,7 +31,6 @@
             "type": "process",
             "args": [
                 "watch",
-                "run",
                 "${workspaceFolder}/Host/Host.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
